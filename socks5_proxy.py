@@ -116,7 +116,7 @@ async def handle_client(reader, writer):
                     finally:
                         try:
                             writer_to.write_eof()
-                        except OSError:
+                        except (OSError, RuntimeError):
                             pass
 
                 await asyncio.gather(
